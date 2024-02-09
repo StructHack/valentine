@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Protest+Riot&display=swap" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+		body{
+			background-color: hotpink;
+			font-family: 'Protest Riot', sans-serif;
+			position:relative;
+		}
+		main{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+		}
+		.body-container{
+			font-size: 1.5rem;
+			margin:1em;
+			color: white;
+			text-shadow: 1px 1px 5px black
+		}
+		.button-container button{
+			font-size: 20px;
+			padding:5px 10px;
+			width: 70px;
+			border: none;
+			margin:0px 50px;
+			box-shadow: 1px 1px 5px black;
+			border-radius: 5px;
+			font-family: 'Protest Riot', sans-serif;
+			color: white;
+			background-color: #222;
+			transition: 0.5s;
+		}
+
+		.button-container button:hover{
+			cursor: pointer;
+			transform: scale(1.5);
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<img src="https://media.tenor.com/Ex1pkci_-v8AAAAi/white-cute-cat-hearts.gif" width="300px">
+		<div class='body-container'>
+			Hiii baby, Will you be my valentine?
+		</div>
+		<div class="button-container">
+			<button id="yes">YES!</button>
+			<button id="no">NO!</button>
+		</div>
+	</main>
+	<script>
+		const noButton = document.querySelector('#no');
+		const yesButton = document.querySelector('#yes');
+
+		function runButton(event){
+			const boundingRect = noButton.getBoundingClientRect();
+			const top = boundingRect.top;
+			const left = boundingRect.left;
+
+			const height =	document.clientHeight;
+			const width = document.clientWidth;
+
+			const randHeight = (Math.random()*5)*100;
+			const randWidth = (Math.random()*5)*100;
+
+			if(randHeight > height){
+				randHeight = randHeight - height;
+			}
+
+			if(randWidth > width){
+				randWidth = randWidth - width;
+			}
+			noButton.style.transform = 'none';
+			noButton.style.transform = `translate(${randWidth}px,${randHeight}px)`;
+		}
+
+		noButton.addEventListener('mouseover',(e)=>{runButton(e)})
+		yesButton.addEventListener('click',(e)=>{
+			alert('yay!! I love you!!!!')
+		})
+	</script>
+</body>
+</html>
